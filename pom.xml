@@ -24,6 +24,7 @@
 		<module>ServletTest2</module>
 		<module>CrmSSH1Demo</module>
 		<module>SpringMybatis</module>
+		<module>MybatisGenerator</module>
 	</modules>
 	<properties>
 		<spring.version>5.2.0.RELEASE</spring.version>
