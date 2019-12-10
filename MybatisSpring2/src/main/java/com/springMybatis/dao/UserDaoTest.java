@@ -1,6 +1,5 @@
 package com.springMybatis.dao;
 
-import com.springMybatis.dao.Impl.UserDaoImpl;
 import com.springMybatis.pojo.User;
 import org.junit.Before;
 import org.junit.Test;

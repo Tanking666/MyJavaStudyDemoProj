@@ -1,7 +1,5 @@
 package com.springMybatis.pojo;
 
-import java.util.List;
-
 /**
  * @author KXY
  * @date Created in 2019/12/10 19:45
