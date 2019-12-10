@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--动态代理开发-->
+<!--1:namesapce全路径名称-->
+<!--2:接口方法名必须与sql ID一致-->
+<!--3:接口入参和parameterType一致-->
+<!--4.接口返回值要与resultType类型一致-->
+<mapper namespace="UserMapper">
+	<select id="getUserById" parameterType="String" resultType="UserEntity">
+		select id,
+			   name,
+			   phone,
+			   sex,
+			   account
+		from s_user
+		where id = #{id1}
+	</select>
+	<insert id="addUser" parameterType="UserEntity">
+
+		<selectKey keyProperty="id" resultType="String" order="BEFORE">
+			select UUID()
+		</selectKey>
+		INSERT s_user (id, name, account) VALUES (UUID(), #{name}, #{account});
+	</insert>
+
+	<update id="updateUser" parameterType="UserEntity">
+		update s_user
+		set name = #{name}
+		where id = #{id}
+	</update>
+
+	<delete id="deleteUser" parameterType="UserEntity">
+		delete
+		from s_user
+		where id = #{id}
+	</delete>
+	<select id="getAllUser" resultType="UserEntity">
+		select su.* from s_user su limit 0,1000
+	</select>
+</mapper>

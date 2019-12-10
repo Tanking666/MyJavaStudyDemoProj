@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+		PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<!--后加载配置文件-->
+	<properties resource="jdbc.properties">
+		<!--优先加载此处配置-->
+		<property name="mysql.username" value="root"/>
+	</properties>
+	<settings>
+		<!-- 打印查询语句 -->
+		<setting name="logImpl" value="STDOUT_LOGGING"/>
+	</settings>
+
+	<!-- 设置别名 -->
+	<typeAliases>
+		<!-- 2. 指定扫描包，会把包内所有的类都设置别名，别名的名称就是类名，大小写不敏感 -->
+		<package name="com.my.batis"/>
+	</typeAliases>
+
+	<!-- 和spring整合后 environments配置将废除 -->
+	<environments default="development">
+		<environment id="development">
+			<!-- 使用jdbc事务管理 -->
+			<transactionManager type="JDBC"/>
+			<!-- 数据库连接池 -->
+			<dataSource type="POOLED">
+				<property name="driver" value="${mysql.driver}"/>
+				<property name="url" value="${mysql.url}"/>
+				<property name="username" value="${mysql.username}"/>
+				<property name="password" value="${mysql.password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="MyBatis/UserEntity.xml"/>
+<!--	<mapper resource="MyBatis/UserDim.xml"/>-->
+<!--	class扫描器-->
+		<!--	接口文件要和配置在一起-->
+		<!--	接口文件名称=映射文件名称-->
+		<mapper class="com.my.batis.mapper.UserMapper"/>
+
+	</mappers>
+</configuration>

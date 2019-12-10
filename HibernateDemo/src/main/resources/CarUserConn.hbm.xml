@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="dao.CarUserConn" table="t_car_usr_conn">
+		<id name="id" column="id">
+			<generator class="uuid"/>
+		</id>
+		<property name="carId" column="car_id"/>
+		<property name="usrId" column="usr_id"/>
+	</class>
+</hibernate-mapping>

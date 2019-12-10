@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="dao.Usr" table="s_user">
+		<id name="id" column="id">
+			<generator class="uuid"/>
+		</id>
+		<property name="name" column="name"/>
+		<property name="sex" column="sex"/>
+		<property name="phone" column="phone"/>
+		<!--	cascade级联配置
+			inverse=true  放弃维护外键
+		-->
+		<set name="usrInfo" cascade="save-update" inverse="true">
+			<key column="usr_id"/>
+			<one-to-many class="dao.UsrInfo"/>
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,10 @@
+# Project exclude paths
+/CrmSSH1Demo/target/
+/HibernateDemo/target/
+/HttpClient/target/
+/jedis/target/
+/MyBatisDemo/target/
+/servletTest/target/
+/ServletTest2/target/
+/SpringMavenDemo/target/
+/Struts2Test/target/

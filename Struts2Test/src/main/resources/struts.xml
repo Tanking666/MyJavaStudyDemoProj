@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+		"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<!--导入其他配置-->
+<!--<include file="com/xx/xx.xml"/>-->
+	<!--配置常量-->
+	<constant name="struts.action.extension" value="action"/>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<!--开启动态方法访问-->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+	<!--动态方法访问-->
+
+	<!--包-->
+	<package name="test" extends="struts-default" namespace="/" >
+		<action name="hello" class="com.my.HelloAction" method="execute" >
+			<result name="success">/xxx.jsp</result>
+		</action>
+		<!--通配符-->
+		<action name="user_*" class="com.my.HelloAction" method="{1}"/>
+	</package>
+
+</struts>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--动态代理开发-->
+<!--1:namesapce全路径名称-->
+<!--2:接口方法名必须与sql ID一致-->
+<!--3:接口入参和parameterType一致-->
+<!--4.接口返回值要与resultType类型一致-->
+<mapper namespace="com.my.batis.mapper.UserMapper">
+	<sql id="select sql">
+		select id, name, phone, sex, account
+		from s_user
+	</sql>
+
+	<select id="queryUserByUser" parameterType="UserEntity" resultType="UserEntity">
+		select id, name, phone, sex, account from s_user
+		<where>
+			<if test="id !=null and id!=''">
+				id = #{id}
+			</if>
+			<if test="name !=null and name!=''">
+				and name like CONCAT('%', #{name}, '%')
+			</if>
+			<if test="phone !=null and phone!=''">
+				and phone like concat ('%', #{phone},'%')
+			</if>
+		</where>
+	</select>
+
+	<select id="queryUserByUserQv" parameterType="QueryVo" resultType="UserEntity">
+		<include refid="select sql"/>
+		<where>
+			<if test="userEntity.name !=null and name!=''">
+				and name like CONCAT('%', #{userEntity.name}, '%')
+			</if>
+			<if test="userEntity.phone !=null and phone!=''">
+				and phone like concat ('%', #{userEntity.phone},'%')
+			</if>
+			<foreach collection="ids" open=" id in(" separator="," close=")" item="uid">
+				#{uid}
+			</foreach>
+		</where>
+	</select>
+
+	<insert id="addUser" parameterType="com.my.batis.entity.UserEntity">
+		<selectKey keyProperty="id" resultType="String" order="BEFORE">
+			select UUID()
+		</selectKey>
+		INSERT s_user (id, name, account) VALUES (UUID(), #{name}, #{account});
+	</insert>
+
+	<update id="updateUser" parameterType="com.my.batis.entity.UserEntity">
+		update s_user
+		set name = #{name}
+		where id = #{id}
+	</update>
+
+	<delete id="deleteUser" parameterType="com.my.batis.entity.UserEntity">
+		delete
+		from s_user
+		where id = #{id}
+	</delete>
+
+
+	<select id="getAllUser" resultType="UserEntity">
+		select su.*
+		from s_user su
+		limit 0,1000
+	</select>
+	<!--"%"#{userEntity.name}"%"-->
+	<select id="getUserByQueryVo" parameterType="queryvo" resultType="UserEntity">
+		select 'id', name
+		from s_user su
+		where su.name like CONCAT('%', #{userEntity.name}, '%')
+	</select>
+	<!--pojo->DB-->
+	<resultMap id="user list" type="userEntity">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="account" column="account"/>
+	</resultMap>
+
+	<resultMap id="user cars" type="UserEntity">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="account" column="account"/>
+
+	</resultMap>
+	<select id="getUserCarsMap" resultMap="user cars">
+		select  tc.id,
+				tc.car_no,
+				tc.user_id,
+				name,
+				account,
+				phone,
+				sex
+		from s_user
+				    inner join t_car tc on s_user.id = tc.user_id
+
+	</select>
+</mapper>
