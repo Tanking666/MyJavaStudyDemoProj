@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mybatis.mapper.SUserMapper">
-	<resultMap id="BaseResultMap" type="com.mybatis.entity.SUser">
+<mapper namespace="com.springMybatis.mapper.SUserMapper">
+	<resultMap id="BaseResultMap" type="com.springMybatis.pojo.SUser">
 		<id column="id" jdbcType="VARCHAR" property="id"/>
 		<result column="name" jdbcType="VARCHAR" property="name"/>
 		<result column="account" jdbcType="DECIMAL" property="account"/>
@@ -69,7 +69,7 @@
 	<sql id="Base_Column_List">
 		id, name, account, phone, sex
 	</sql>
-	<select id="selectByExample" parameterType="com.mybatis.entity.SUserExample" resultMap="BaseResultMap">
+	<select id="selectByExample" parameterType="com.springMybatis.pojo.SUserExample" resultMap="BaseResultMap">
 		select
 		<if test="distinct">
 			distinct
@@ -93,19 +93,19 @@
 		from s_user
 		where id = #{id,jdbcType=VARCHAR}
 	</delete>
-	<delete id="deleteByExample" parameterType="com.mybatis.entity.SUserExample">
+	<delete id="deleteByExample" parameterType="com.springMybatis.pojo.SUserExample">
 		delete from s_user
 		<if test="_parameter != null">
 			<include refid="Example_Where_Clause"/>
 		</if>
 	</delete>
-	<insert id="insert" parameterType="com.mybatis.entity.SUser">
+	<insert id="insert" parameterType="com.springMybatis.pojo.SUser">
 		insert into s_user (id, name, account,
 							phone, sex)
 		values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{account,jdbcType=DECIMAL},
 				#{phone,jdbcType=BIGINT}, #{sex,jdbcType=BIT})
 	</insert>
-	<insert id="insertSelective" parameterType="com.mybatis.entity.SUser">
+	<insert id="insertSelective" parameterType="com.springMybatis.pojo.SUser">
 		insert into s_user
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
@@ -142,7 +142,7 @@
 			</if>
 		</trim>
 	</insert>
-	<select id="countByExample" parameterType="com.mybatis.entity.SUserExample" resultType="java.lang.Long">
+	<select id="countByExample" parameterType="com.springMybatis.pojo.SUserExample" resultType="java.lang.Long">
 		select count(*) from s_user
 		<if test="_parameter != null">
 			<include refid="Example_Where_Clause"/>
@@ -178,7 +178,7 @@
 			<include refid="Update_By_Example_Where_Clause"/>
 		</if>
 	</update>
-	<update id="updateByPrimaryKeySelective" parameterType="com.mybatis.entity.SUser">
+	<update id="updateByPrimaryKeySelective" parameterType="com.springMybatis.pojo.SUser">
 		update s_user
 		<set>
 			<if test="name != null">
@@ -196,7 +196,7 @@
 		</set>
 		where id = #{id,jdbcType=VARCHAR}
 	</update>
-	<update id="updateByPrimaryKey" parameterType="com.mybatis.entity.SUser">
+	<update id="updateByPrimaryKey" parameterType="com.springMybatis.pojo.SUser">
 		update s_user
 		set name    = #{name,jdbcType=VARCHAR},
 			account = #{account,jdbcType=DECIMAL},

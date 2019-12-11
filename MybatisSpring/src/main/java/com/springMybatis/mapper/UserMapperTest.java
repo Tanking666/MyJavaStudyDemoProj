@@ -1,6 +1,8 @@
 package com.springMybatis.mapper;
 
 import com.springMybatis.dao.UserDao;
+import com.springMybatis.pojo.SUser;
+import com.springMybatis.pojo.SUserExample;
 import com.springMybatis.pojo.User;
 import org.junit.Before;
 import org.junit.Test;
@@ -44,5 +46,17 @@ public class UserMapperTest {
 
 	@Test
 	public void getUserById() {
+		SUserMapper sUserMapper=applicationContext.getBean(SUserMapper.class);
+//		SUser user = sUserMapper.selectByPrimaryKey("88282bca-1804-11ea-afc7-00e07b680c17");
+		SUser sUser = new SUser();
+		sUser.setName("王");
+		SUserExample sUserExample = new SUserExample();
+		SUserExample.Criteria criteria = sUserExample.createCriteria();
+		criteria.andNameLike("%王%");
+		criteria.andAccountIsNotNull();
+		List<SUser> l  = sUserMapper.selectByExample(sUserExample);
+		for(SUser u :l){
+			System.out.println(u);
+		}
 	}
 }
