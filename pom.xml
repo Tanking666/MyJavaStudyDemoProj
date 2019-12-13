@@ -12,20 +12,19 @@
 		<module>Anno</module>
 		<module>HibernateDemo</module>
 		<module>jedis</module>
-		<module>servletTest</module>
-		<module>socketTest</module>
-		<module>Struts2Test</module>
-		<module>Tree</module>
+		<module>HttpClientDemo</module>
 		<module>MyBatisDemo</module>
-		<module>SpringMavenDemo</module>
-		<module>spring4_crm</module>
-		<module>strutsTest</module>
-		<module>HttpClient</module>
-		<module>ServletTest2</module>
-		<module>CrmSSH1Demo</module>
-		<module>SpringMybatis</module>
 		<module>MybatisGenerator</module>
+		<module>MybatisSpring</module>
+		<module>ServletDemo</module>
+		<module>ServletDemo2</module>
+		<module>SocketDemo</module>
+		<module>SpringDemo</module>
 		<module>SpringMVCDemo</module>
+		<module>Struts2Demo</module>
+		<module>StrutsDemo</module>
+		<module>Tree</module>
+		<module>CrmSSH1Demo</module>
 	</modules>
 	<properties>
 		<spring.version>5.2.0.RELEASE</spring.version>
@@ -69,4 +68,18 @@
 			</resource>
 		</resources>
 	</build>
+	<profiles>
+		<profile>
+			<id>jdk-1.8</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+				<jdk>1.8</jdk>
+			</activation>
+			<properties>
+				<maven.compiler.source>1.8</maven.compiler.source>
+				<maven.compiler.target>1.8</maven.compiler.target>
+				<maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+			</properties>
+		</profile>
+	</profiles>
 </project>
