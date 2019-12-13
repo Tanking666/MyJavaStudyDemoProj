@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx.xsd
+
+" default-autowire="byName">
+
+	<!--使用配置-->
+	<!--<bean id="userImpl" class="userServiceImpl"/>-->
+
+	<!--<bean id="user" class="UserEntity">-->
+	<!--构造方法-->
+	<!--	<property name="name" value="abc"/>-->
+	<!--set方法-->
+	<!--	<constructor-arg name="id" value="123456"/>-->
+	<!--</bean>-->
+	<!--Spring IOC注解配置-->
+	<!--配置组件扫描-->
+	<context:component-scan base-package="com.my.spring.demo1"/>
+
+	<!--引入配置-->
+	<context:property-placeholder location="classpath:jdbc.properties"/>
+	<!--切面类-->
+	<bean id="myAspectByXml" class="com.my.spring.demo1.MyAspectXml"/>
+	<bean id="myAspectByAnno" class="com.my.spring.demo1.MyAspectAnno"/>
+	<!--开启AOP注解开发-->
+	<aop:aspectj-autoproxy/>
+	<!--	aop配置-->
+	<aop:config>
+		<!--	表达式配置需要增强方法-->
+		<aop:pointcut id="pointCut1" expression="execution(* com.my.spring.demo1.service.impl.carServiceImpl.save(..))"/>
+		<!--	配置切面-->
+		<aop:aspect ref="myAspectByXml">
+			<aop:before method="checkPri" pointcut-ref="pointCut1"/>
+		</aop:aspect>
+	</aop:config>
+	<!--Spring内置连接池-->
+	<!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+	<!--	<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>-->
+	<!--	<property name="url" value="${mysql.url}"/>-->
+	<!--	<property name="username" value="${mysql.username}"/>-->
+	<!--	<property name="password" value="${mysql.password}"/>-->
+	<!--</bean>-->
+	<!--老马连接池-->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+		<property name="url" value="${mysql.url}"/>
+		<property name="username" value="${mysql.username}"/>
+		<property name="password" value="${mysql.password}"/>
+	</bean>
+	<!--配置Spring JDBC模板-->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+</beans>
+
