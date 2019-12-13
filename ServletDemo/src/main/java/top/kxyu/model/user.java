@@ -1,12 +1,5 @@
 package top.kxyu.model;
 
-import top.kxyu.dao.userDao;
-import top.kxyu.util.DbUtil;
-
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 /**
  * @INFO:
  * @Auther: KXY

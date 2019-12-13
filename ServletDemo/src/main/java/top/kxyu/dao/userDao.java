@@ -40,7 +40,7 @@ public class userDao {
 			u.setPassword(rs.getString(3));
 			u.setAlias(rs.getString(4));
 			u.setHead_photo(rs.getString(5));
-			if(rs.getString(6) != null){
+			if (rs.getString(6) != null) {
 				u.setType(Integer.valueOf(rs.getString(6)));
 			}
 			return u;

@@ -14,5 +14,5 @@ public interface userServicel {
 
 	public void del(UserEntity entity);
 
-	public void transfer(UserEntity from, UserEntity to, Double money );
+	public void transfer(UserEntity from, UserEntity to, Double money);
 }

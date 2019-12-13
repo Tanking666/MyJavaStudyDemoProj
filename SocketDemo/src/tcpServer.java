@@ -20,7 +20,7 @@ public class tcpServer {
 		os.write("this is Server info".getBytes());
 		byte[] arr = new byte[1024];
 		int len = is.read(arr);
-		System.out.println(new String(arr,0,len));
+		System.out.println(new String(arr, 0, len));
 
 	}
 

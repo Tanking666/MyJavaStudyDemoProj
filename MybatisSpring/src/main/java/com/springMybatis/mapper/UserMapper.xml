@@ -8,11 +8,15 @@
 			   name,
 			   phone,
 			   sex,
-			   account from s_user where id = #{id1}
+			   account
+		from s_user
+		where id = #{id1}
 	</select>
 
 	<select id="queryUsersByName" parameterType="String" resultType="com.springMybatis.pojo.User">
-		select id,name,account from s_user where name like '%${value}%'
+		select id, name, account
+		from s_user
+		where name like '%${value}%'
 	</select>
 
 	<insert id="addUser" parameterType="com.springMybatis.pojo.User">
@@ -28,7 +32,9 @@
 	</insert>
 
 	<delete id="delUser" parameterType="String">
-		delete from s_user where id=#{id}
+		delete
+		from s_user
+		where id = #{id}
 	</delete>
 
 	<!--<select id="test">-->

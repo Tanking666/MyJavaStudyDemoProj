@@ -47,9 +47,9 @@
 
 
 		<mapping resource="hbm/Car.xml"/>
-<!--	<mapping resource="CarUserConn.hbm.xml"/>-->
-<!--	<mapping resource="Usr.hbm.xml"/>-->
-<!--	<mapping resource="UsrInfo.hbm.xml"/>-->
+		<!--	<mapping resource="CarUserConn.hbm.xml"/>-->
+		<!--	<mapping resource="Usr.hbm.xml"/>-->
+		<!--	<mapping resource="UsrInfo.hbm.xml"/>-->
 
 
 	</session-factory>

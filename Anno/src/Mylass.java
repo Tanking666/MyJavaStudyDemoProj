@@ -7,7 +7,7 @@
  */
 
 public class Mylass {
-	static void say(){
+	static void say() {
 		System.out.println("this is my say");
 	}
 

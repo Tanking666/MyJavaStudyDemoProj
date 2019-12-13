@@ -2,7 +2,6 @@ package dao;
 
 import entity.Car;
 
-import java.util.Date;
 import java.util.List;
 
 /**

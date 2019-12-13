@@ -1,8 +1,7 @@
 package com.my.batis.mapper;
 
-import com.my.batis.entity.CarEntity;
-import com.my.batis.entity.UserEntity;
 import com.my.batis.entity.QueryVo;
+import com.my.batis.entity.UserEntity;
 
 import java.util.List;
 

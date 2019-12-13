@@ -88,15 +88,15 @@
 
 	</resultMap>
 	<select id="getUserCarsMap" resultMap="user cars">
-		select  tc.id,
-				tc.car_no,
-				tc.user_id,
-				name,
-				account,
-				phone,
-				sex
+		select tc.id,
+			   tc.car_no,
+			   tc.user_id,
+			   name,
+			   account,
+			   phone,
+			   sex
 		from s_user
-				    inner join t_car tc on s_user.id = tc.user_id
+				 inner join t_car tc on s_user.id = tc.user_id
 
 	</select>
 </mapper>

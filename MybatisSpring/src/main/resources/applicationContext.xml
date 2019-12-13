@@ -2,16 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	   xmlns:context="http://www.springframework.org/schema/context"
-	   xmlns:aop="http://www.springframework.org/schema/aop"
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/context
-	http://www.springframework.org/schema/context/spring-context.xsd
-	http://www.springframework.org/schema/aop
-	http://www.springframework.org/schema/aop/spring-aop.xsd
-	http://www.springframework.org/schema/tx
-	http://www.springframework.org/schema/tx/spring-tx.xsd
-" default-autowire="byName">
+	http://www.springframework.org/schema/context/spring-context.xsd" default-autowire="byName">
 
 	<!--使用配置-->
 	<!--<bean id="userImpl" class="userServiceImpl"/>-->
@@ -64,9 +58,9 @@
 		<property name="minIdle" value="5"/>
 	</bean>
 	<!--配置Spring JDBC模板-->
-<!--	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">-->
-<!--		<property name="dataSource" ref="dataSource"/>-->
-<!--	</bean>-->
+	<!--	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">-->
+	<!--		<property name="dataSource" ref="dataSource"/>-->
+	<!--	</bean>-->
 
 	<!--MyBatis配置-->
 	<!--不加id默认sqlSessionFactoryBean-->
@@ -89,9 +83,9 @@
 		<property name="sqlSessionFactory" ref="sqlSessionFactoryBean"/>
 	</bean>
 	<!--配置一个接口-->
-<!--	<bean parent="baseMapper">-->
-<!--		<property name="mapperInterface" value="com.springMybatis.mapper.UserMapper"/>-->
-<!--	</bean>-->
+	<!--	<bean parent="baseMapper">-->
+	<!--		<property name="mapperInterface" value="com.springMybatis.mapper.UserMapper"/>-->
+	<!--	</bean>-->
 	<!--包扫描-->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.springMybatis.mapper"/>

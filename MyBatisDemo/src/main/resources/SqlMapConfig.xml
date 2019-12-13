@@ -36,8 +36,8 @@
 	</environments>
 	<mappers>
 		<mapper resource="MyBatis/UserEntity.xml"/>
-<!--	<mapper resource="MyBatis/UserDim.xml"/>-->
-<!--	class扫描器-->
+		<!--	<mapper resource="MyBatis/UserDim.xml"/>-->
+		<!--	class扫描器-->
 		<!--	接口文件要和配置在一起-->
 		<!--	接口文件名称=映射文件名称-->
 		<mapper class="com.my.batis.mapper.UserMapper"/>

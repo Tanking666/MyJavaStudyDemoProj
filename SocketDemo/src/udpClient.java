@@ -1,8 +1,6 @@
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.util.Scanner;
 
 /**
  * @INFO:
@@ -20,7 +18,7 @@ public class udpClient {
 			DatagramPacket dp = new DatagramPacket(new byte[1024], 1024);
 			ds.receive(dp);
 			byte bt[] = dp.getData();
-			System.out.println(new String(bt,0,dp.getLength()));
+			System.out.println(new String(bt, 0, dp.getLength()));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

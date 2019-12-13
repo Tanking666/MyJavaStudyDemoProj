@@ -3,8 +3,8 @@ package com.my.spring.demo1;
 
 import com.my.spring.demo1.entity.UserEntity;
 import com.my.spring.demo1.service.carServicel;
-import com.my.spring.demo1.service.userServicel;
 import com.my.spring.demo1.service.impl.userServiceImpl;
+import com.my.spring.demo1.service.userServicel;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +31,7 @@ public class SpringDemo1 {
 		userServicel userService = new userServiceImpl();
 		userService.save(new UserEntity());
 	}
+
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 

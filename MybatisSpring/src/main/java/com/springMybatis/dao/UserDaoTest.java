@@ -1,6 +1,5 @@
 package com.springMybatis.dao;
 
-import com.springMybatis.dao.Impl.UserDaoImpl;
 import com.springMybatis.pojo.User;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,13 +15,14 @@ public class UserDaoTest {
 	private ApplicationContext applicationContext;
 
 	@Before
-	public void init(){
+	public void init() {
 		applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 	}
+
 	@Test
 	public void addUser() {
 		UserDao userDao = applicationContext.getBean(UserDao.class);
-		User u =userDao.getUserById("8072d5c5-1804-11ea-afc7-00e07b680c17");
+		User u = userDao.getUserById("8072d5c5-1804-11ea-afc7-00e07b680c17");
 		System.out.println(u);
 
 	}

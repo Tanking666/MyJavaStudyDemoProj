@@ -2,7 +2,6 @@ package top.kxyu.web;
 
 import net.sf.json.JSONObject;
 import top.kxyu.dao.userDao;
-import top.kxyu.model.user;
 import top.kxyu.util.StringUtil;
 
 import javax.servlet.ServletException;

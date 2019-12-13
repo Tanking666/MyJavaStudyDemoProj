@@ -8,7 +8,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src="js/jquery-3.4.1.min.js"></script>
     <script>
-        reg = () => {
+        reg = () =
+        >
+        {
             let username = $("#username").val();
             let password = $("#password").val();
             let userInfo = {"username": username, "password": password};
@@ -21,9 +23,12 @@
                     $("#info").removeAttr("hidden");
                 }
             }, "json");
-        };
+        }
+        ;
 
-        login = () => {
+        login = () =
+        >
+        {
             let username = $("#username").val();
             let password = $("#password").val();
             let userInfo = {"username": username, "password": password};

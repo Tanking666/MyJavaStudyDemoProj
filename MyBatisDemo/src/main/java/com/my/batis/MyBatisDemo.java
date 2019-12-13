@@ -158,7 +158,7 @@ public class MyBatisDemo {
 		CarMapper carMapper = sqlSession.getMapper(CarMapper.class);
 		List<CarEntity> list = carMapper.getCarMap();
 		for (CarEntity u : list) {
-			System.out.println("car"+u);
+			System.out.println("car" + u);
 		}
 		sqlSession.close();
 	}

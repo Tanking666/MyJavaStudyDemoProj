@@ -22,7 +22,7 @@ public class StringUtil {
 
 	public static boolean isAllNotEmpty(Object... objs) {
 		for (Object o : objs) {
-			if(isEmpty(o)){
+			if (isEmpty(o)) {
 				return false;
 			}
 		}

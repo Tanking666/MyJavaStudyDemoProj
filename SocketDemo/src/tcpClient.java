@@ -13,12 +13,12 @@ import java.net.Socket;
 public class tcpClient {
 
 	public static void main(String[] args) throws IOException {
-		Socket socket = new Socket("127.0.0.1",8888);
+		Socket socket = new Socket("127.0.0.1", 8888);
 		InputStream is = socket.getInputStream();
 		OutputStream os = socket.getOutputStream();
 		byte[] arr = new byte[1024];
 		int len = is.read(arr);
-		System.out.println(new String(arr,0,len));
+		System.out.println(new String(arr, 0, len));
 		os.write("this is Client Info".getBytes());
 	}
 }

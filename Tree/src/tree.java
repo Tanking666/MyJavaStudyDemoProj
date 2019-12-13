@@ -9,11 +9,17 @@ import java.util.List;
  */
 public interface tree {
 	void add(node n);
+
 	void add(int num);
+
 	void del(node n);
+
 	void del(int i);
+
 	node find(node n);
+
 	node find(int nodeNum);
+
 	List<node> getSubNode(node root);
 
 }

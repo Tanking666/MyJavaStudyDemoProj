@@ -6,7 +6,6 @@ import top.kxyu.model.user;
 import top.kxyu.util.DbUtil;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -39,7 +38,7 @@ public class login extends HttpServlet {
 			jsonObject.put("flag", true);
 			jsonObject.put("userId", u.getId());
 			String sql = "UPDATE s_user su SET su.session=? WHERE su.id=?";
-			DbUtil.execSql(sql,req.getRequestedSessionId(),u.getId());
+			DbUtil.execSql(sql, req.getRequestedSessionId(), u.getId());
 		}
 		resp.getOutputStream().write(jsonObject.toString().getBytes("utf-8"));
 	}

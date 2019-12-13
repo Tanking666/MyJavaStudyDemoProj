@@ -6,7 +6,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import java.io.Serializable;
 import java.util.List;
 
 
@@ -46,7 +45,7 @@ public class testMain {
 
 	public static void main(String[] args) {
 		List<Usr> l = HibernateUtils.query("from Usr where id=4b166891-f1b8-11e9-bfe9-00e05b680058");
-		for(Usr u : l){
+		for (Usr u : l) {
 			System.out.println(u.getId());
 		}
 	}

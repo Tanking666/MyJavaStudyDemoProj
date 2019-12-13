@@ -5,14 +5,18 @@
 <mapper namespace="user">
 	<select id="getUserById" parameterType="String" resultType="UserEntity">
 		select id,
-       name,
-       phone,
-       sex,
-       account from s_user where id = #{id1}
+			   name,
+			   phone,
+			   sex,
+			   account
+		from s_user
+		where id = #{id1}
 	</select>
 
 	<select id="getUsersById" parameterType="String" resultType="UserEntity">
-		select id,name,account from s_user where name like '%${value}%'
+		select id, name, account
+		from s_user
+		where name like '%${value}%'
 	</select>
 	<insert id="insertUser" parameterType="UserEntity">
 
@@ -27,14 +31,20 @@
 	</insert>
 
 	<update id="updateUser" parameterType="String">
-		update s_user set name = #{name} where id=#{id}
+		update s_user
+		set name = #{name}
+		where id = #{id}
 	</update>
 
 	<delete id="deleteUser" parameterType="String">
-		delete from s_user where id=#{id}
+		delete
+		from s_user
+		where id = #{id}
 	</delete>
 
 	<select id="test">
-		select * from s_user su inner join t_usr_info tui on su.id = tui.usr_id
+		select *
+		from s_user su
+				 inner join t_usr_info tui on su.id = tui.usr_id
 	</select>
 </mapper>

@@ -97,6 +97,8 @@
 			   tc.car_no,
 			   tc.user_id,
 			   su.name,
-			   su.account FROM t_car tc INNER JOIN s_user su ON su.id=tc.user_id
+			   su.account
+		FROM t_car tc
+				 INNER JOIN s_user su ON su.id = tc.user_id
 	</select>
 </mapper>
