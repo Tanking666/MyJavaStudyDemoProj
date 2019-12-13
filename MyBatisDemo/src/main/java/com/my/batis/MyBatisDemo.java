@@ -156,7 +156,7 @@ public class MyBatisDemo {
 	public void oneToOneTest() {
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession(true);
 		CarMapper carMapper = sqlSession.getMapper(CarMapper.class);
-		List<CarEntity> list = carMapper.getCarMap();
+		List<CarEntity> list = carMapper.getCarUserMap();
 		for (CarEntity u : list) {
 			System.out.println("car" + u);
 		}
