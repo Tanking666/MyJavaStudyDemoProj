@@ -22,8 +22,6 @@
 		<module>ServletDemo2</module>
 		<module>SocketDemo</module>
 		<module>SpringDemo</module>
-		<module>SpringMVCDemo</module>
-		<module>SpringMVCDemo</module>
 		<module>Struts2Demo</module>
 		<module>StrutsDemo</module>
 		<module>Tree</module>
