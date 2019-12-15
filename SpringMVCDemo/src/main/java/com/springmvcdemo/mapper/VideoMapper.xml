@@ -94,6 +94,9 @@
 		<if test="orderByClause != null">
 			order by ${orderByClause}
 		</if>
+		<if test="limmitClause != null">
+			limit ${limmitClause}
+		</if>
 	</select>
 	<select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
 		select

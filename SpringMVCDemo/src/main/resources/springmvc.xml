@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.alibaba.com/schema/stat"
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/context
-	http://www.springframework.org/schema/context/spring-context.xsd" default-autowire="byName">
+	http://www.springframework.org/schema/context/spring-context.xsd http://www.alibaba.com/schema/stat http://www.alibaba.com/schema/stat.xsd" default-autowire="byName">
 
 	<context:component-scan base-package="com.springmvcdemo.controller"/>
 	<context:component-scan base-package="com.springmvcdemo.pojo"/>
@@ -15,7 +15,8 @@
 
 	<!--引入配置-->
 	<context:property-placeholder location="classpath:jdbc.properties"/>
-	<!--切面类-->
+
+	<!--***切面类-->
 	<!--<bean id="myAspectByXml" class="com.my.spring.demo1.MyAspectXml"/>-->
 	<!--<bean id="myAspectByAnno" class="com.my.spring.demo1.MyAspectAnno"/>-->
 	<!--开启AOP注解开发-->
@@ -29,6 +30,9 @@
 	<!--<aop:before method="checkPri" pointcut-ref="pointCut1"/>-->
 	<!--</aop:aspect>-->
 	<!--</aop:config>-->
+
+
+	<!--***数据库连接部分-->
 	<!--Spring内置连接池-->
 	<!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
 	<!--<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>-->
@@ -36,7 +40,6 @@
 	<!--<property name="username" value="${mysql.username}"/>-->
 	<!--<property name="password" value="${mysql.password}"/>-->
 	<!--</bean>-->
-
 	<!--老马连接池-->
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
 		<property name="driverClassName" value="${mysql.driver}"/>
@@ -54,7 +57,6 @@
 	<!--	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">-->
 	<!--		<property name="dataSource" ref="dataSource"/>-->
 	<!--	</bean>-->
-
 	<!--MyBatis配置-->
 	<!--不加id默认sqlSessionFactoryBean-->
 	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -83,5 +85,23 @@
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.springmvcdemo.mapper"/>
 	</bean>
+
+	<!--处理器映射器-->
+	<!--	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
+	<!--处理器适配器 实例化被访问类 调度注解方法-->
+	<!--	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>-->
+	<!--配置注解驱动 使用最新映射器和驱动器 对json 提供支持-->
+	<mvc:annotation-driven/>
+
+	<!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html)- -->
+	<bean id="defaultViewResolver"
+		  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+				  value="org.springframework.web.servlet.view.JstlView"/>
+		<property name="contentType" value="text/html"/>
+		<property name="prefix" value="/webpage/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+
 
 </beans>

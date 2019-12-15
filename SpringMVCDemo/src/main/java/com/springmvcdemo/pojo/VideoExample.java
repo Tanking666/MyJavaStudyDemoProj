@@ -6,6 +6,8 @@ import java.util.List;
 public class VideoExample {
 	protected String orderByClause;
 
+	protected String limmitClause;
+
 	protected boolean distinct;
 
 	protected List<Criteria> oredCriteria;
@@ -16,6 +18,18 @@ public class VideoExample {
 
 	public void setOrderByClause(String orderByClause) {
 		this.orderByClause = orderByClause;
+	}
+
+	public String getLimmitClause() {
+		return limmitClause;
+	}
+
+	public void setLimmitClause(String limmitClause) {
+		this.limmitClause = limmitClause;
+	}
+
+	public void setLimmitClause(int start, int end) {
+		this.limmitClause = " " + start + "," + end;
 	}
 
 	public String getOrderByClause() {

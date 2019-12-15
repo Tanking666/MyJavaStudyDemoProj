@@ -1,7 +1,7 @@
 package com.my.spring.demo1.controller;
 
 import com.my.spring.demo1.service.carServicel;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
